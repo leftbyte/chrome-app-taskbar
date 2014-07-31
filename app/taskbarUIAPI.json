@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "version": "0.0.1",
+  "type": "object",
+  "title": "Taskbar UI API",
+  "description": "API shared between the UI and server process.",
+
+  "properties": {
+    "sessionID": {
+      "description": "Session ID associated with the issue.  Usually the email address.",
+      "type": "string"
+    },
+    /*
+     * GET_ISSUES: Request by client for current set of issues.
+     * REPORT_ISSUES: Report all the issues to the client(s) in response to a GET_ISSUES request or
+     *                a PUT_ISSUE request.
+     * PUT_ISSUE: Request by client to add a new issue.
+     * GATHER_DATA: Request by client to start data gathering process.
+     */
+    "command": {
+      "type": {"enum": ["GET_ISSUES", "PUT_ISSUE", "REPORT_ISSUES", "GATHER_DATA"]}
+    },
+    "issueUpdateType": {
+      "description": "The type of submission this is: NEW or UPDATE",
+      "type": { "enum": [ "NEW", "UPDATE" ] },
+    },
+    "issueID": {
+      "description": "Issue ID for use when updating.",
+      "type": "number"
+    },
+    "issueCategory": {
+      "description": "Issue category",
+      "type": "string"
+    },
+    "issueDetail": {
+      "description": "Issue detail",
+      "type": "string"
+    },
+    "timestamp": {
+      "description": "Time at which the issue was submitted in milliseconds elapsed since 1 January 1970 00:00:00 UTC.",
+      "type": "number"
+    }
+    "issues": {
+      "description": "Array of issues returned with the REPORT_ISSUES command in response to the GET_ISSUES request",
+      "type": "array"
+    },
+  }
+
+  "definitions": {
+    "issue": {
+      "description": "Feedback from the user.",
+      "required": ["sessionID", "issueID", "issueCategory", "issueDetail", "timestamp"]
+    },
+    "getIssuesCommand": {
+      "description": "Command from client to server to get the array of existing issues.",
+      "required": ["sessionID", "command"]
+    },
+    "putIssueCommand": {
+      "description": "Command from client to server to submit a new issue.",
+      "required": ["sessionID", "issue"]
+    },
+    "reportIssuesCommand": {
+      "description": "Command from server to client to provide the array of existing issues.",
+      "required": ["sessionID", "issues"]
+    },
+    "gatherDataCommand": {
+      "description": "Command from client to server to start the data gathering process.",
+      "required": ["sessionID"]
+    }
+  }
+}

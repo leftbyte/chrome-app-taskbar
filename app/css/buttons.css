@@ -1,0 +1,120 @@
+.container {
+}
+
+div#aboutButton {
+  content:url('../images/checklist.png');
+  width: 18px;
+  height: 18px;
+  padding-top: 3px;
+}
+
+div#feedbackButton {
+  transition: background-color 0.3s ease;
+  display: inline;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #88BBEE;
+  border: 1px solid #FF;
+  padding: 2px 8px 8px 8px;
+  float: left;
+  padding-top: 3px;
+}
+
+div#endButton {
+  content:url('../images/upload.png');
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+  padding-top: 3px;
+  border: none;
+}
+
+#helpButton {
+  content:url('../images/question_mark.png');
+  /* 14 px is better if in the feedback page. */
+  /* padding-left: 120px; */
+  /* width: 14px; */
+  /* height: 14px; */
+  /* 16 px is better if in the taskbar */.
+  width: 16px;
+  height: 16px;
+  display: inline;
+  margin-left: 2px;
+}
+
+#reviewIssuesButton {
+  font-size: 12px;
+  color: #EEE;
+  background-color: #3366CC;
+  /* background-color: #88BBEE; */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 86px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#endButtonBag {
+  /* This dictates where the badge is placed.*/
+  text-align: center;
+  margin-bottom: 10px;
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+
+  font-family: "arial";
+  font-size: 12px;
+  font-weight: 600;
+  color: #F0;
+}
+
+.badge {
+  position: absolute;
+  left: 14px;
+  top: 10px;
+
+  background-color: rgba(32, 255 , 32, 0.8);
+  width: 14px;
+  height: 14px;
+  border-radius: 30%;
+}
+
+.badgeDetail {
+  position: relative;
+  right: 3px;
+  top: 7px;
+  z-index: 1;
+
+  width: 20px;
+  height: 20px;
+}
+
+/* Button animation */
+div.hover {
+  background-color: #33BB33;
+}
+
+.button:active {
+  -webkit-transform: translateX(1px) translateY(1px);
+  transform: translateX(1px) translateY(1px);
+}
+
+@-webkit-keyframes greenPulse {
+  from { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #91bd09; -webkit-box-shadow: 0 0 18px #91bd09; }
+  to { background-color: #749a02; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+@-webkit-keyframes bluePulse {
+  from { background-color: #0099FF; }
+  50% { background-color: #88BBEE; }
+  to { background-color: #0099FF; }
+}
+
+.attention {
+  -webkit-animation-name: bluePulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: 5;
+  background-color: #88BBEE;
+}

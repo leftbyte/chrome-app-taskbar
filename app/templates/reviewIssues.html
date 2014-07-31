@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en" ng-app="reviewIssuesApp" ng-csp="">
+  <head>
+    <meta charset="utf-8">
+    <title>Feedback Review</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reviewList.css">
+  </head>
+  <body ng-controller="reviewIssuesController">
+
+    <div id='noIssues'>
+      <div class='section'>
+        <h2>Feedback</h2>
+      </div>
+      <div class='paragraphText'>
+        <p class='alarmingText'>
+          You have not submitted any feedback! Are you sure you want to gather
+          the logs for this lab?
+        </p>
+      </div>
+    </div>
+
+    <div id="reviewWrap">
+      <div class="container">
+        <div class="section">
+          <!--Body content-->
+          <h2 id="sidHeader">Feedback from session ID
+            <div id="sessionID">{{sessionID}}</div>
+          </h2>
+
+          <ul class="issues">
+            <li ng-repeat="issue in issues track by $index">
+              <div id="leftcolumn">{{$index + 1}}</div>
+              <div class="maincolor" id="toprow">{{issue.issueCategory}}</div>
+              <div id="bottomrow">{{issue.issueDetail}}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <form>
+          <input type='submit' value='Submit' id='sendAllIssuesSubmit'/>
+          <input type='submit' value='Cancel' id='cancel'/>
+
+          <span id='cancelText'>Sure?</span>
+          <input type='button' value='Yes' id='cancelAck'/>
+          <input type='button' value='No' id='cancelReject'/>
+        </form>
+      </div>
+    </div>
+
+  </body>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/jquery/jquery.js"></script>
+  <script src="../js/controllers.js"></script>
+  <script src="../js/input.js"></script>
+</html>

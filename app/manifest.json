@@ -1,0 +1,32 @@
+{
+  "name": "Taskbar",
+  "description": "A example taskbar application",
+  "manifest_version": 2,
+  "version": "0.1",
+  "app": {
+    "background": {
+      "scripts": ["bower_components/jquery/jquery.js",
+                  "js/windows.js",
+                  "js/tcpClient.js",
+                  "js/requests.js",
+                  "js/uiComm.js",
+                  "js/fakeIssues.js",
+                  "js/mainBgWindow.js"]
+    }
+  },
+  "icons": {
+    "16": "images/checklist.png",
+    "32": "images/checklist.png",
+    "128": "images/checklist.png",
+    "512": "images/checklist.png"
+  },
+  "sockets": {
+    "tcp": {
+      "connect": ["*:*"] // connect to any ports of any hosts
+    }
+  },
+  "permissions": [
+    "alwaysOnTopWindows"
+    // "background" // needed if launching at Windows startup
+  ]
+}

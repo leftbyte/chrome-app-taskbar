@@ -1,0 +1,10 @@
+This was my first attempt at writing any javascript code, so this app doesn't
+adhere to the better javascript patterns/conventions such as:
+- module namespacing
+- private/protected/public methods
+  - this.method vs function.prototype
+- consistent use of function declarations and named function expressions.
+- caching of for loop end conditional
+- private vars prefixed with _
+- using object literals for singletons (no constructo function needed)
+- cache property lookups: var slice = Array.prototype.slice

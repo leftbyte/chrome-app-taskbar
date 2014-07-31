@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Feedback</title>
+    <link href='../css/buttons.css' rel='stylesheet'>
+    <link href='../css/style.css' rel='stylesheet'>
+    <!-- link href='../css/feedbackAnimations.css' rel='stylesheet' -->
+  </head>
+  <body>
+
+    <div class='content'>
+      <div class='section'>
+        <h2>Feedback</h2>
+
+        <div class='issueCategory'>
+          <form>
+            <select id='issueCategory' name='IssueCategory'>
+              <optgroup label='Feedback type'>
+              <option selected value='General'>General feedback</option>
+              <option value='Tech Bug'>Seems broken</option>
+              <option value='UX Bug'>Unexpected behavior</option>
+              <option value='UI Bug'>Looks ugly</option>
+              <option value='FistBump'>That's awesome</option>
+              <option value='Request for info'>Tell me more...</option>
+            </select>
+            <!-- span id='helpButton' class='button'>Halp! </span -->
+          </form>
+          <br/>
+        </div>
+
+        <form>
+          <textarea required type='text' placeholder="Tell us what to improve..." id='issueDetail' ></textarea>
+          <br/>
+        </form>
+
+        <br/>
+        <div class='center-button'>
+	  <input type='submit' value='Submit' id='issueSubmit'/>
+	  <input type='submit' value='Cancel' id='cancel'/>
+
+          <!-- These are hidden by default and show up to handle the feedback cancellation ux -->
+          <!-- We wouldn't have to do stuff like this if we were using angular. -->
+          <span id='cancelText'>Sure?</span>
+          <input type='button' value='Yes' id='cancelAck'/>
+          <input type='button' value='No' id='cancelReject'/>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src='../bower_components/jquery/jquery.js' type='text/javascript'></script>
+  <script src='../js/input.js' type='text/javascript'></script>
+</html>
